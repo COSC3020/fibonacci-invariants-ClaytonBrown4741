@@ -26,4 +26,22 @@ about it at the start of each recursive call.
 
 Describe your reasoning and the conclusion you've come to. Your reasoning is the
 most important part. You do not need to prove that the invariant is correct. Add
-your answer to this markdown file.
+your answer to this markdown file.  
+  
+
+ANSWER:  
+I believe that a good invariant for my recursive implementation of fib() is that  
+at the beginning of every recursive call, the length of the array holding the  
+fibonacci values is exactly one more than the desired term in the fibonacci sequence.  
+In other words, if we were to call fib() on 7, then the array would have a length of 8.  
+The exception to this, of course, if we are dealing with negative numbers, in which case  
+the length of the list is always just 1 and will have a single entry of 0. 
+Using this relationship, we are able to always know exactly which index of the array  
+corresponds to which value in the fibonacci sequence. This can be used to prove that  
+we are always assigning the correct values to the correct places in the array.  
+
+**Concerning my code**:
+At this point, my code seems to run a *really* long time when it comes to larger values  
+This causes issues when it comes to testing it, as the testing runs for extended periods of  
+time. If this isn't normal, please let me know and I will try to fix my code to account for this.  
+Thank you.
