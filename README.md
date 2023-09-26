@@ -42,6 +42,6 @@ the two values we need to compute the next term already exist. This will repeat 
 which point we return the list of values that we have.
   
 **Concerning my code**:
-After class today, I realized that I could simply use tail recursion in order to calculate this  
+After class today, I realized that I could simply use a different way in order to calculate this  
 answer and *not* the normal recursive way that takes about 20 years to complete for larger values.  
 Because of this, my invariant has changed since the first submission.
