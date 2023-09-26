@@ -30,18 +30,18 @@ your answer to this markdown file.
   
 
 ANSWER:  
-I believe that a good invariant for my recursive implementation of fib() is that  
-at the beginning of every recursive call, the length of the array holding the  
-fibonacci values is exactly one more than the desired term in the fibonacci sequence.  
-In other words, if we were to call fib() on 7, then the array would have a length of 8.  
-The exception to this, of course, if we are dealing with negative numbers, in which case  
-the length of the list is always just 1 and will have a single entry of 0. 
-Using this relationship, we are able to always know exactly which index of the array  
-corresponds to which value in the fibonacci sequence. This can be used to prove that  
-we are always assigning the correct values to the correct places in the array.  
-
+I believe that a good invariant for this would be that at the beginning of every recursive call  
+the previous two terms will *always* be available. The base case is true because before we began the recursive call, we  
+checked to make sure that the given term wasn't 0, less than 0, or 1. If it was, then we simply  
+returned the proper array automatically (that being [0] or [0,1]. If it *wasn't* those, however, then we created the  
+array with the proper length (that being, a length of n) and then gave it it's first two values of 0 and 1. So  
+in other words, once the actual recursion starts, we'll have everything we need, which proves the base case true.  
+From then on out, we will create and add one extra term in the sequence using the previous two that we already know are  
+there. Now that we have *another* term, we can call the function again (with an incremented index) and be sure that  
+the two values we need to compute the next term already exist. This will repeat until we reach the final entry in the array, at  
+which point we return the list of values that we have.
+  
 **Concerning my code**:
-At this point, my code seems to run a *really* long time when it comes to larger values  
-This causes issues when it comes to testing it, as the testing runs for extended periods of  
-time. If this isn't normal, please let me know and I will try to fix my code to account for this.  
-Thank you.
+After class today, I realized that I could simply use tail recursion in order to calculate this  
+answer and *not* the normal recursive way that takes about 20 years to complete for larger values.  
+Because of this, my invariant has changed since the first submission.
